@@ -31,10 +31,15 @@ class ProductManager {
         })
          
          
-        products.push(product)
         
+        if (!isInProducts) {
+            console.log("really added")
+        }
+        else {
+            products.push(product)
+        }
 
-    
+      
        
         
       
@@ -44,6 +49,11 @@ class ProductManager {
   
 
 }
+
+const insInProducts = () => { return products.find (product => product.code === code)}
+
+
+
 
 const getProducts = () =>  {
 
