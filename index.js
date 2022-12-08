@@ -2,8 +2,9 @@ const products = []
 
 class ProductManager {
     
+    static id = 1
     
-    constructor (title, description, price, thumbnail, code, stock, newId){
+    constructor (title, description, price, thumbnail, code, stock){
        
         this.title = title
         this.description = description
@@ -11,6 +12,7 @@ class ProductManager {
         this.thumbnail = thumbnail
         this.code = code
         this.stock = stock
+         ProductManager.id
         
 
     }
@@ -27,19 +29,24 @@ class ProductManager {
             thumnail: this.thumbnail,
             code: this.code,
             stock: this.stock,
+            id:ProductManager.id
+            
           
         })
          
+        const verifyCode = products.find(element => element.code === product.code)
          
-        
-        if (!isInProducts) {
-            console.log("really added")
+        if(verifyCode) {
+            console.log("ERR")
         }
         else {
             products.push(product)
+            ProductManager.id++
+            
         }
+        
 
-      
+    
        
         
       
@@ -50,11 +57,6 @@ class ProductManager {
 
 }
 
-const insInProducts = () => { return products.find (product => product.code === code)}
-
-
-
-
 const getProducts = () =>  {
 
     console.log(products)
@@ -64,9 +66,9 @@ const getProducts = () =>  {
 
 
 
-const getProductsByCode = (code) => {
+const getProductsById = (id) => {
 
-    const search = products.find(product => product.code === code)
+    const search = products.find(product => product.id === id)
 
   if (search == undefined) {
     console.log( "There are no products with that code.")
@@ -76,16 +78,14 @@ const getProductsByCode = (code) => {
   }
 }
 
-const isInProducts = (code) => {
-    products.find (prod => prod.code === code)
-}
 
 
 
 
-const yerba = new ProductManager("yerba", "rica", 22, "img", "3", 3)
 
-const cafe = new ProductManager("dolca", "fuerte", 33, "img", "3", 2)
+const yerba = new ProductManager("yerba", "rica", 22, "img", 3, 3)
+
+const cafe = new ProductManager("dolca", "fuerte", 33, "img", 4, 2)
 
 
 yerba.addProducts()
@@ -94,7 +94,4 @@ cafe.addProducts()
 
 getProducts()
 
-
-
-
-
+getProductsById(2)
