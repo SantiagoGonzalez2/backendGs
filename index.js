@@ -14,19 +14,14 @@ class ProductManager {
         this.stock = stock
          ProductManager.id
         
-
     }
     addProducts() {
-     
-      
-    
-
       
         let product= ({
             title: this.title,
             description: this.description,
             price: this.price,
-            thumnail: this.thumbnail,
+            thumbnail: this.thumbnail,
             code: this.code,
             stock: this.stock,
             id:ProductManager.id
@@ -39,22 +34,22 @@ class ProductManager {
         if(verifyCode) {
             console.log("ERR")
         }
+       
+            
         else {
             products.push(product)
             ProductManager.id++
             
         }
-        
+        if (!product.title || !product.description || !product.price ||
 
-    
-       
-        
-      
-      
-    }
-
+            !product.thumbnail || !product.code || !product.stock) {
   
-
+          throw new Error("All fields are required");
+  
+        }
+            
+    }
 }
 
 const getProducts = () =>  {
@@ -62,9 +57,6 @@ const getProducts = () =>  {
     console.log(products)
 
 }
-
-
-
 
 const getProductsById = (id) => {
 
@@ -79,18 +71,14 @@ const getProductsById = (id) => {
 }
 
 
+const onePhone = new ProductManager("Samsung", "22 ULTRA", 1000, "img", 3, 4)
+
+const twoPhone = new ProductManager( "Iphone", "14 PLUS", 1500, "img", 4, 2)
 
 
+onePhone.addProducts()
 
-
-const yerba = new ProductManager("yerba", "rica", 22, "img", 3, 3)
-
-const cafe = new ProductManager("dolca", "fuerte", 33, "img", 4, 2)
-
-
-yerba.addProducts()
-
-cafe.addProducts()
+twoPhone.addProducts()
 
 getProducts()
 
