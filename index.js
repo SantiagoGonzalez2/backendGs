@@ -1,85 +1,163 @@
-const products = []
+const ProductManager = require("./productManager");
 
-class ProductManager {
+const newProductManager = new ProductManager("data.json")
+
+// newProductManager.getProducts()
+// newProductManager.getProductsById(1)
+
+// newProductManager.updateProduct(1, {title:199})
+
+newProductManager.deleteProductsById(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const products = []
+
+// class ProductManager {
     
-    static id = 1
+//     static id = 1
     
-    constructor (title, description, price, thumbnail, code, stock){
+//     constructor (title, description, price, thumbnail, code, stock){
        
-        this.title = title
-        this.description = description
-        this.price = price
-        this.thumbnail = thumbnail
-        this.code = code
-        this.stock = stock
-         ProductManager.id
+//         this.title = title
+//         this.description = description
+//         this.price = price
+//         this.thumbnail = thumbnail
+//         this.code = code
+//         this.stock = stock
+//          ProductManager.id
         
-    }
-    addProducts() {
+//     }
+//     addProducts() {
       
-        let product= ({
-            title: this.title,
-            description: this.description,
-            price: this.price,
-            thumbnail: this.thumbnail,
-            code: this.code,
-            stock: this.stock,
-            id:ProductManager.id
+//         let product= ({
+//             title: this.title,
+//             description: this.description,
+//             price: this.price,
+//             thumbnail: this.thumbnail,
+//             code: this.code,
+//             stock: this.stock,
+//             id:ProductManager.id
             
           
-        })
+//         })
          
-        const verifyCode = products.find(element => element.code === product.code)
+//         const verifyCode = products.find(element => element.code === product.code)
          
-        if(verifyCode) {
-            console.log("ERR")
-        }
+//         if(verifyCode) {
+//             console.log("ERR")
+//         }
        
             
-        else {
-            products.push(product)
-            ProductManager.id++
+//         else {
+//             products.push(product)
+//             ProductManager.id++
             
-        }
-        if (!product.title || !product.description || !product.price ||
+//         }
+//         if (!product.title || !product.description || !product.price ||
 
-            !product.thumbnail || !product.code || !product.stock) {
+//             !product.thumbnail || !product.code || !product.stock) {
   
-          throw new Error("All fields are required");
+//           throw new Error("All fields are required");
   
-        }
+//         }
             
-    }
-}
+//     }
+//     updateProducts ()  {
 
-const getProducts = () =>  {
+//     }
+//     deleteProducts () {
+      
+//     }
+// }
 
-    console.log(products)
+// const getProducts = () =>  {
 
-}
+//     console.log(products)
 
-const getProductsById = (id) => {
+// }
 
-    const search = products.find(product => product.id === id)
+// const getProductsById = (id) => {
 
-  if (search == undefined) {
-    console.log( "There are no products with that code.")
-  }
-  else {
-    console.log(search)
-  }
-}
+//     const search = products.find(product => product.id === id)
 
-
-const onePhone = new ProductManager("Samsung", "22 ULTRA", 1000, "img", 3, 4)
-
-const twoPhone = new ProductManager( "Iphone", "14 PLUS", 1500, "img", 4, 2)
+//   if (search == undefined) {
+//     console.log( "There are no products with that code.")
+//   }
+//   else {
+//     console.log(search)
+//   }
+// }
 
 
-onePhone.addProducts()
+// const onePhone = new ProductManager("Samsung", "22 ULTRA", 1000, "img", 3, 4)
 
-twoPhone.addProducts()
+// const twoPhone = new ProductManager( "Iphone", "14 PLUS", 1500, "img", 4, 2)
 
-getProducts()
 
-getProductsById(2)
+// onePhone.addProducts()
+
+// twoPhone.addProducts()
+
+// getProducts()
+
+// getProductsById(2)
+
+
+
