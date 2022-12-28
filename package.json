@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SantiagoGonzalez2/backendGs/issues"
   },
-  "homepage": "https://github.com/SantiagoGonzalez2/backendGs#readme"
+  "homepage": "https://github.com/SantiagoGonzalez2/backendGs#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

@@ -38,16 +38,18 @@ class ProductManager {
     }
 
     async getProducts() {
-        const fileContent = await this.readFile()
-        try {
-            if (fileContent.lenght === 0) console.log("no hay productos");
-            else console.log(fileContent)
+        // const fileContent = await this.readFile()
+        // try {
+        //     if (fileContent.lenght === 0) console.log("no hay productos");
+        //     else 
+        //      console.log(fileContent)
 
 
-        }
-        catch (err) {
-            console.log("not products")
-        }
+        // }
+        // catch (err) {
+        //     console.log("not products")
+        // }
+        return JSON.parse(fs.readFileSync(this.filepath, "utf-8"))
     }
 
     async checkCode(code) {
